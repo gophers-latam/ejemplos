@@ -1,1 +1,2 @@
-ejemplos
+
+## Ejemplos propuestos probando soluciones posibles
