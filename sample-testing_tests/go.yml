@@ -1,0 +1,31 @@
+# crear carpeta .github en la raíz del proyecto y
+# luego crear archivo en .github/workflows/go.yml.
+
+name: Go
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: go test -v ./...
+
+# Después subir al repo, se puede ir a la pestaña Actions
+# y ver que se aprueben las pruebas
